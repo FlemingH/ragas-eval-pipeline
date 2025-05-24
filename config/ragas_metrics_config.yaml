@@ -1,0 +1,15 @@
+# config/config.yaml  
+# 基本配置  
+output_dir: "data/results"  
+  
+# Ragas评估指标  
+ragas_metrics:  
+  - "answer_correctness"  
+  - "context_precision"   
+  - "context_recall"  
+  
+# 评估阈值  
+thresholds:  
+  answer_correctness: 0.7  
+  context_precision: 0.7  
+  context_recall: 0.7  

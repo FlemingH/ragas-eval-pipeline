@@ -1,0 +1,8 @@
+# config/api_config.yaml  
+embedding_model:
+  url: "https://api.openai.com/v1/embeddings"
+  model: "text-embedding-v3"
+
+evaluate_model:
+  url: "https://api.openai.com/v1/chat/completions"
+  model: "gpt-4o-mini"
