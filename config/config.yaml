@@ -1,8 +1,9 @@
 # config/api_config.yaml  
+# OLLAMA_CONTEXT_LENGTH=8192 ollama serve
+
 embedding_model:
-  url: "https://api.openai.com/v1/embeddings"
-  model: "text-embedding-v3"
+  model: "nomic-embed-text:latest"
 
 evaluate_model:
-  url: "https://api.openai.com/v1/chat/completions"
-  model: "gpt-4o-mini"
+  model: "phi4:latest"
+  # model: "qwen2.5:14b"
