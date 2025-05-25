@@ -45,6 +45,28 @@ data_samples = {
     ],
 }
 
+# Read the Excel file and generate data samples
+excel_path = os.path.join(current_dir, 'results', 'test_result_2025525.xlsx')
+df = pd.read_excel(excel_path)
+
+# Create data samples from the Excel file
+data_samples = {
+    'question': df['query'].tolist(),
+    'answer': df['TableGPT2 回答'].tolist(),
+    'ground_truth': df['golden'].tolist(),
+
+    # Since contexts are not provided in the Excel file, we'll use empty lists with strings
+    # You may need to modify this if contexts are available in the Excel file
+    'contexts': [[''] for _ in range(len(df))]
+}
+
+# Convert any numbers in the data_samples to strings
+for key in data_samples:
+    if key == 'contexts':
+        data_samples[key] = [[str(item) for item in context] for context in data_samples[key]]
+    else:
+        data_samples[key] = [str(item) for item in data_samples[key]]
+
 dataset = Dataset.from_dict(data_samples)
 
 score = evaluate(
